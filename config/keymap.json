@@ -8,11 +8,11 @@
   ],
   "layers": [
     [
-        "&none",  "&none",  "&none",  "&none",    "&none",  "&none",               "&none",                                                                                               "&none",  "&none",    "&none",     "&none",   "&none",     "&none",  "&none",
-        "&none",  "&kp Q",  "&kp W",  "&kp E",    "&kp R",  "&kp F",               "&none",                                                                                               "&none",  "&kp Y",    "&kp U",     "&kp I",   "&kp O",     "&none",  "&none",
-        "&none",  "&kp A",  "&kp S",  "&kp D",    "&kp T",  "&kp G",               "&none", "&mt LALT DELETE",  "&bootloader",                      "&bootloader", "&mt RALT BACKSPACE",  "&none",  "&kp H",    "&kp N",     "&kp K",   "&kp L",     "&kp P",  "&none",
-        "&none",  "&kp Z",  "&kp X",  "&kp C",    "&kp V",  "&kp B",                                              "&kp LCTRL",                        "&kp RCTRL",                                  "&kp J",    "&kp M", "&kp COMMA", "&kp DOT", "&kp MINUS",  "&none",
-        "&none",  "&none",  "&none",  "&none", "&kp LCMD",                     "&kp SPACE",  "&mt TAB LSHIFT", "&mt LCMD ESC",                     "&mt RCMD ESC",  "&mt RSHIFT RETURN",  "&mo 1",           "&kp LEFT",  "&kp DOWN",  "&kp UP", "&kp RIGHT",  "&none"
+        "&none",  "&none",  "&none",  "&none",    "&none",  "&none",               "&none",                                                                                               "&none",  "&none",    "&none",     "&none",        "&none",     "&none",  "&none",
+        "&none",  "&none",  "&kp W",  "&kp E",    "&kp R",  "&kp F",               "&none",                                                                                               "&none",  "&kp Y",    "&kp U",     "&kp I", "&mt LALT+O O",     "&none",  "&none",
+        "&none",  "&kp A",  "&kp S",  "&kp D",    "&kp T",  "&kp G",               "&none", "&mt LALT DELETE",  "&bootloader",                      "&bootloader", "&mt RALT BACKSPACE",  "&none",  "&kp H",    "&kp N",   "&mt Q K",        "&kp L",     "&kp P",  "&none",
+        "&none",  "&kp Z",  "&kp X",  "&kp C",    "&kp V",  "&kp B",                                              "&kp LCTRL",                        "&kp RCTRL",                                  "&kp J",    "&kp M", "&kp COMMA",      "&kp DOT", "&kp MINUS",  "&none",
+        "&none",  "&none",  "&none",  "&none", "&kp LCMD",                     "&kp SPACE",  "&mt LSHIFT TAB", "&mt LCMD ESC",                     "&mt RCMD ESC",  "&mt RSHIFT RETURN",  "&mo 1",           "&kp LEFT",  "&kp DOWN",       "&kp UP", "&kp RIGHT",  "&none"
     ], [
        "&trans",       "&trans",       "&trans",       "&trans",       "&trans",       "&trans",           "&trans",                                                             "&trans",       "&trans",       "&trans",       "&trans",       "&trans",       "&trans", "&trans",
        "&trans",       "&trans",       "&trans",       "&trans",       "&trans",       "&trans",           "&trans",                                                             "&trans",       "&trans",       "&trans",       "&trans",       "&trans",       "&trans", "&trans",
