@@ -9,8 +9,8 @@
 
 / {
     behaviors {
-      #include "macros.dtsi"
-      #include "version.dtsi"
+        #include "macros.dtsi"
+        #include "version.dtsi"
     };
     keymap {
         compatible = "zmk,keymap";
