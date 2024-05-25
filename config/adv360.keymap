@@ -24,36 +24,90 @@
  * Form more information read the manual: https://kinesis-ergo.com/wp-content/uploads/Advantage360-ZMK-KB360-PRO-Users-Manual-v3-10-23.pdf
  */
 
-#DEFINE LMAC1 0
-#DEFINE LMAC2 1
-//#DEFINE LWIN1 2
-//#DEFINE LWIN2 3
-//#DEFINE LLIN1 4
-//#DEFINE LLIN2 5
+#define MACOS 0
+#define MACOS_FN 1
 
 / {
     behaviors {
-        #include "macros.dtsi"
         #include "version.dtsi"
+        
+        taphold: behavior_tap_hold {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            bindings = <&kp>, <&kp>;
+            tapping-term-ms = <175>;
+            flavor = "tap-preferred";
+        };
+
+        holdtap: behavior_hold_tap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            bindings = <&mo>, <&tog>;
+            tapping-term-ms = <175>;
+            flavor = "hold-preferred";
+        };
+
+        #define LAYER_TAPHOLD(layer) &taphold layer layer
+        #define LAYER_HOLDTAP(layer) &holdtap layer layer
+
+        player: behaviour_mediaplayer_controls {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            bindings = <&kp C_PLAY_PAUSE>, <&kp C_NEXT>, <&kp C_PREVIOUS>;
+            tapping-term-ms = <125>;
+        };
+
+        squote: macro_single_quotes {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp SQT>, <&kp SQT>, <&kp LEFT>;
+        };
+
+        dquote: macro_double_quotes {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp DQT>, <&kp DQT>, <&kp LEFT>;
+        };
+
+        rbrace: macro_round_brakets {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LPAR>, <&kp RPAR>, <&kp LEFT>;
+        };
+
+        sbrace: macro_square_brackets {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LBKT>, <&kp RBKT>, <&kp LEFT>;
+        };
+
+        cbrace: macro_curly_brackets {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LBRC>, <&kp RBRC>, <&kp LEFT>;
+        };
     };
+
     keymap {
         compatible = "zmk,keymap";
+
         default_layer {
             bindings = <
-                &none   &none   &none   &none     &none   &none                &none                                                                                         &none            &none     &none      &none    &none      &none   &none
-                &none   &none   &kp W   &kp E     &kp R   &kp F                &none                                                                                         &none            &kp Y     &kp U      &kp I    &kp O      &none   &none
-                &none   &kp A   &kp S   &kp D     &kp T   &kp G                &none   &mt LALT DELETE           &none                         &none   &mt RALT BACKSPACE    &none            &kp H     &kp N    &mt Q K    &kp L      &kp P   &none
-                &none   &kp Z   &kp X   &kp C     &kp V   &kp B                                              &kp LCTRL                     &kp RCTRL                                          &kp J     &kp M  &kp COMMA  &kp DOT  &kp MINUS   &none
-                &none   &none   &none   &none  &kp LCMD                    &kp SPACE    &mt LSHIFT TAB    &mt LCMD ESC                  &mt RCMD ESC    &mt RSHIFT RETURN    &mo 1                   &kp LEFT   &kp DOWN   &kp UP  &kp RIGHT   &none
+                &none        &none        &none        &none        &none           &none        &none                                                                                                                                             &none        &none        &none           &none            &none          &none            &none
+                &none        &none        &kp W        &kp E        &kp R           &kp F        &none                                                                                                                                             &none        &kp Y        &kp U           &kp I            &kp O          &none            &none
+                &none        &kp A        &kp S        &kp D        &kp T           &kp G        &none                      &mt LALT DELETE        &none               &none               &mt RALT BACKSPACE                                      &none        &kp H        &kp N           &mt Q K          &kp L          &kp P            &none
+                &none        &kp Z        &kp X        &kp C        &kp V           &kp B                                                          &kp LCTRL           &kp RCTRL                                                                                &kp J        &kp M           &kp COMMA        &kp DOT        &kp MINUS        &none
+                &none        &none        &none        &none        &kp LCMD                                  &kp SPACE     &mt LSHIFT TAB         &mt LCMD ESC        &mt RCMD ESC        &mt RSHIFT RETURN        LAYER_HOLDTAP(MACOS_FN)                                  &kp LEFT        &kp DOWN         &kp UP         &kp RIGHT        &none
             >;
         };
+
         default_layer_2 {
             bindings = <
-                &none         &none         &none         &none           &none         &none                       &none                                                         &none                 &none          &none         &none           &none            &none    &none
-                &none        &kp F1        &kp F2         &kp F3         &kp F4         &kp F5                     &kp F6                                                        &kp F7                &kp F8         &kp F9        &kp F10        &kp F11          &kp F12    &none
-                &none  &kp NUMBER_1  &kp NUMBER_2   &kp NUMBER_3   &kp NUMBER_4   &kp NUMBER_5                      &none    &kp C_PREVIOUS  &none                  &none  &none  &none          &kp NUMBER_6   &kp NUMBER_7   &kp NUMBER_8   &kp NUMBER_9     &kp NUMBER_0    &none
-                &none         &none         &none          &none          &none          &none                                               &none                  &none                               &none          &none          &none          &none            &none    &none
-                &none         &none         &none          &none          &none                          &kp C_PLAY_PAUSE        &kp C_NEXT  &none                  &none  &none  &none                                &none          &none          &none            &none    &none
+                &none        &none               &none               &none              &none               &none               &none                                                                                                  &none         &none               &none               &none               &none               &none               &none
+                &none        &kp F1              &kp F2              &kp F3             &kp F4              &kp F5              &kp F6                                                                                                 &kp F7        &kp F8              &kp F9              &kp F10             &kp F11             &kp F12             &none
+                &none        &kp NUMBER_1        &kp NUMBER_2        &kp NUMBER_3       &kp NUMBER_4        &kp NUMBER_5        &none                      &none          &none         &none        &none                             &none         &kp NUMBER_6        &kp NUMBER_7        &kp NUMBER_8        &kp NUMBER_9        &kp NUMBER_0        &none
+                &none        &none               &none               &none              &none               &none                                                         &none         &none                                                        &none               &none               &none               &none               &none               &none
+                &none        &none               &none               &none              &none                                                 &none        &player        &none         &none        &none        &tog MACOS_FN                                          &none               &none               &none               &none               &none
             >;
         };
     };
