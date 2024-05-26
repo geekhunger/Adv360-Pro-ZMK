@@ -55,10 +55,11 @@ formatted_result+="<&kp RET>"
 echo $formatted_result
 # Create new macro to define version, overwrite previous one
 
-echo '#define FIRMWARE_VERSION' > "config/version.dtsi"
-echo '    version: macro_firmware_version {' >> "config/version.dtsi"
-echo '        label = "macro_firmware_version";' >> "config/version.dtsi"
-echo '        compatible = "zmk,behavior-macro";' >> "config/version.dtsi"
-echo '        #binding-cells = <0>;' >> "config/version.dtsi"
-echo "        bindings = $formatted_result;" >> "config/version.dtsi"
-echo '    };' >> "config/version.dtsi"
+version_filepath="config/version.dtsi"
+echo '#define FIRMWARE_VERSION' > $version_filepath
+echo 'version: macro_firmware_version {' >> $version_filepath
+echo '    label = "macro_firmware_version";' >> $version_filepath
+echo '    compatible = "zmk,behavior-macro";' >> $version_filepath
+echo '    #binding-cells = <0>;' >> $version_filepath
+echo "    bindings = $formatted_result; \\" >> $version_filepath
+echo '};' >> $version_filepath
