@@ -39,16 +39,16 @@
  * @param {int=0} mods - A bit field of modifiers that wants to be held down, for example, `(MOD_LSFT|MOD_RSFT|MOD_LCTL|MOD_RCTL|MOD_LALT|MOD_RALT|MOD_LGUI|MOD_RGUI)`. Pass `0` to toggle the layer without any modifiers.
  * @param {string} name - The reference name for the ZMK macro which will be used for mappings, for example, name `left_shift` would become a callable reference `&left_shift` inside of keymap bindings.
  */
-#define LMOD(layer, mods, name)
-    name: macro_##name {
-        label = #name;
-        compatible = "zmk,behavior-macro";
-        wait-ms = <0>;
-        #binding-cells = <0>;
-        bindings =
-            <&macro_press &mo layer &kp mods>,
-            <&macro_pause_for_release>,
-            <&macro_release &mo layer &kp mods>;
+#define LMOD(layer, mods, name) \
+    name: macro_##name { \
+        label = #name; \
+        compatible = "zmk,behavior-macro"; \
+        wait-ms = <0>; \
+        #binding-cells = <0>; \
+        bindings = \
+            <&macro_press &mo layer &kp mods>, \
+            <&macro_pause_for_release>, \
+            <&macro_release &mo layer &kp mods>; \
     };
 
 &mt {
