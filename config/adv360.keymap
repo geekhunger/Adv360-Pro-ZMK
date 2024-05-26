@@ -8,30 +8,6 @@
 #include <dt-bindings/zmk/mouse.h>
 
 /*
- * README
- *
- * The fallowing keymap layer naming schema is proposed for better readability:
- ** Layers 'default_layer' and 'default_layer_<2..n>' are reserved layer namespaces for MacOS.
- ** Layers 'windows_layer' and 'windows_layer_<2..n>' are reserved layer namespaces for Windows.
- ** Additional operating systems should fallow the same naming schema.
- *
- * Define names for your layers, for convenient referencing inside of keymap bindings.
- * Use ZMK keycodes, macros, your layer names .. etc, to adjust the layer bindings to your liking.
- *
- * Run 'make clean && make all' to generate the firmware.
- * Use a paperclip to push the bootloader buttons on the Advantage360, begin with the left side.
- * Flash the firmware, then continue with the right side of the keyboard.
- * Form more information read the manual: https://kinesis-ergo.com/wp-content/uploads/Advantage360-ZMK-KB360-PRO-Users-Manual-v3-10-23.pdf
- *
- * NOTES
- *
- * To register custom key codes: https://github.com/zmkfirmware/zmk/issues/947#issuecomment-1728583763
- */
-
-#define MACOS 0
-#define MACOS_FN 1
-
-/*
  * This preprocessor is a ZMK macro generator.
  * Its abbreviated name `LMOD` stands for "Activate a layer (e.g.: &mo 1) and auto-hold some modifier keys (e.g.: LEFT_SHIFT)".
  * You can use it for momentary layer switches with automatically pressed modifier keys.
