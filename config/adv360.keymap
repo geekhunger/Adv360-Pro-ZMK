@@ -9,7 +9,7 @@
 
 /*
  * This preprocessor is a ZMK macro generator.
- * Its abbreviated name `LMOD` stands for "Activate a layer (e.g.: &mo 1) and auto-hold some modifier keys (e.g.: LEFT_SHIFT)".
+ * Its abbreviated name `LMOD` stands for "Activate a layer (e.g. `&mo 1`) and auto-hold some modifier keys (e.g. `LEFT_SHIFT`)".
  * You can use it for momentary layer switches with automatically pressed modifier keys.
  * @param {int} layer - Index of the layer that wants to be toggled.
  * @param {int=0} mods - A bit field of modifiers that wants to be held down, for example, `(MOD_LSFT|MOD_RSFT|MOD_LCTL|MOD_RCTL|MOD_LALT|MOD_RALT|MOD_LGUI|MOD_RGUI)`. Pass `0` to toggle the layer without any modifiers.
