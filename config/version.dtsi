@@ -1,7 +1,0 @@
-#define FIRMWARE_VERSION
-    version: macro_firmware_version {
-        label = "macro_firmware_version";
-        compatible = "zmk,behavior-macro";
-        #binding-cells = <0>;
-        bindings = <&kp N2>, <&kp N0>, <&kp N2>, <&kp N4>, <&kp N0>, <&kp N5>, <&kp N2>, <&kp N6>, <&kp MINUS>, <&kp M>, <&kp A>, <&kp I>, <&kp N>, <&kp MINUS>, <&kp N5>, <&kp N6>, <&kp N3>, <&kp N5>, <&kp B>, <&kp N8>, <&kp N6>, <&kp RET>;
-    };
